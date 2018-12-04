@@ -1,13 +1,12 @@
-package com.pinyougou.manager.controller;
+package com.pinyougou.cart.controller;
 import java.util.List;
 
+import com.pinyougou.order.service.OrderService;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.pinyougou.order.service.ContentService;
-import com.pinyougou.pojo.TbContent;
-
+import com.pinyougou.pojo.TbOrder;
 
 import entity.PageResult;
 import entity.Result;
@@ -17,19 +16,19 @@ import entity.Result;
  *
  */
 @RestController
-@RequestMapping("/content")
-public class ContentController {
+@RequestMapping("/order")
+public class OrderController {
 
 	@Reference
-	private ContentService contentService;
+	private OrderService orderService;
 	
 	/**
 	 * 返回全部列表
 	 * @return
 	 */
 	@RequestMapping("/findAll")
-	public List<TbContent> findAll(){			
-		return contentService.findAll();
+	public List<TbOrder> findAll(){			
+		return orderService.findAll();
 	}
 	
 	
@@ -39,18 +38,18 @@ public class ContentController {
 	 */
 	@RequestMapping("/findPage")
 	public PageResult  findPage(int page,int rows){			
-		return contentService.findPage(page, rows);
+		return orderService.findPage(page, rows);
 	}
 	
 	/**
 	 * 增加
-	 * @param content
+	 * @param order
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public Result add(@RequestBody TbContent content){
+	public Result add(@RequestBody TbOrder order){
 		try {
-			contentService.add(content);
+			orderService.add(order);
 			return new Result(true, "增加成功");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -60,13 +59,13 @@ public class ContentController {
 	
 	/**
 	 * 修改
-	 * @param content
+	 * @param order
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public Result update(@RequestBody TbContent content){
+	public Result update(@RequestBody TbOrder order){
 		try {
-			contentService.update(content);
+			orderService.update(order);
 			return new Result(true, "修改成功");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,8 +79,8 @@ public class ContentController {
 	 * @return
 	 */
 	@RequestMapping("/findOne")
-	public TbContent findOne(Long id){
-		return contentService.findOne(id);		
+	public TbOrder findOne(Long id){
+		return orderService.findOne(id);		
 	}
 	
 	/**
@@ -92,7 +91,7 @@ public class ContentController {
 	@RequestMapping("/delete")
 	public Result delete(Long [] ids){
 		try {
-			contentService.delete(ids);
+			orderService.delete(ids);
 			return new Result(true, "删除成功"); 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -102,14 +101,14 @@ public class ContentController {
 	
 		/**
 	 * 查询+分页
-	 * @param brand
+	 * @param
 	 * @param page
 	 * @param rows
 	 * @return
 	 */
 	@RequestMapping("/search")
-	public PageResult search(@RequestBody TbContent content, int page, int rows  ){
-		return contentService.findPage(content, page, rows);		
+	public PageResult search(@RequestBody TbOrder order, int page, int rows  ){
+		return orderService.findPage(order, page, rows);		
 	}
 	
 }

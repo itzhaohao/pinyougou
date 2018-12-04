@@ -1,6 +1,6 @@
-package com.pinyougou.content.service;
+package com.pinyougou.order.service;
 import java.util.List;
-import com.pinyougou.pojo.TbContent;
+import com.pinyougou.pojo.TbContentCategory;
 
 import entity.PageResult;
 /**
@@ -8,13 +8,13 @@ import entity.PageResult;
  * @author Administrator
  *
  */
-public interface ContentService {
+public interface ContentCategoryService {
 
 	/**
 	 * 返回全部列表
 	 * @return
 	 */
-	public List<TbContent> findAll();
+	public List<TbContentCategory> findAll();
 	
 	
 	/**
@@ -27,13 +27,13 @@ public interface ContentService {
 	/**
 	 * 增加
 	*/
-	public void add(TbContent content);
+	public void add(TbContentCategory contentCategory);
 	
 	
 	/**
 	 * 修改
 	 */
-	public void update(TbContent content);
+	public void update(TbContentCategory contentCategory);
 	
 
 	/**
@@ -41,7 +41,7 @@ public interface ContentService {
 	 * @param id
 	 * @return
 	 */
-	public TbContent findOne(Long id);
+	public TbContentCategory findOne(Long id);
 	
 	
 	/**
@@ -56,12 +56,6 @@ public interface ContentService {
 	 * @param pageSize 每页记录数
 	 * @return
 	 */
-	public PageResult findPage(TbContent content, int pageNum,int pageSize);
-	/**
-	 * 根据广告分类Id查询对应广告
-	 * @param categoryId
-	 * @return
-	 */
-	public List<TbContent> findContentByCategoryId(long categoryId);
+	public PageResult findPage(TbContentCategory contentCategory, int pageNum,int pageSize);
 	
 }

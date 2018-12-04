@@ -55,7 +55,10 @@ app.controller('cartController',function($scope,cartService){
 		}
 	}
 	
-	
+	$scope.order={'paymenType':'1'};
+    $scope.selectPayType=function(type){
+        $scope.order.paymenType=type;
+	}
 	
 	/*sum= function(){
 		$scope.totalNum=0;

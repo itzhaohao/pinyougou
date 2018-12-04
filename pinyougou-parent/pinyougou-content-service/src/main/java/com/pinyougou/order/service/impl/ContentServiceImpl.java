@@ -1,4 +1,4 @@
-package com.pinyougou.content.service.impl;
+package com.pinyougou.order.service.impl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -6,7 +6,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.pinyougou.content.service.ContentService;
+import com.pinyougou.order.service.ContentService;
 import com.pinyougou.mapper.TbContentMapper;
 import com.pinyougou.pojo.TbContent;
 import com.pinyougou.pojo.TbContentExample;
